@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"net/http"
 	"os"
@@ -12,6 +13,7 @@ const delay = 5
 
 func main() {
 
+	leArquivo()
 	introducao()
 
 	for {
@@ -69,10 +71,37 @@ func monitoramento() {
 }
 
 func testaSite(site string) {
-	response, _ := http.Get(site)
+	response, err := http.Get(site)
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro: ", err)
+	}
+
 	if response.StatusCode == 200 {
 		fmt.Println("Site: ", site, "foi carregado com sucesso.")
 	} else {
 		fmt.Println("Site: ", site, "esta com problema. Status code: ", response.StatusCode)
 	}
+}
+
+func leArquivo() []string {
+	var sites []string
+
+	arquivo, err := os.Open("sites.txt")
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro: ", err)
+	}
+
+	leitor := bufio.NewReader(arquivo)
+
+	linha, err := leitor.ReadString('\n')
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro: ", err)
+	}
+
+	fmt.Println(linha)
+
+	return sites
 }
