@@ -4,25 +4,32 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
+
+const monitoramentos = 3
+const delay = 5
 
 func main() {
 
 	introducao()
-	menu()
 
-	comando := leComando()
-	switch comando {
-	case 1:
-		monitoramento()
-	case 2:
-		fmt.Println("\nExibindo logs...")
-	case 0:
-		fmt.Println("\nSaindo do programa.")
-		os.Exit(0)
-	default:
-		fmt.Println("\nNão conheço este comando.")
-		os.Exit(-1)
+	for {
+		menu()
+
+		comando := leComando()
+		switch comando {
+		case 1:
+			monitoramento()
+		case 2:
+			fmt.Println("\nExibindo logs...")
+		case 0:
+			fmt.Println("\nSaindo do programa.")
+			os.Exit(0)
+		default:
+			fmt.Println("\nNão conheço este comando.")
+			os.Exit(-1)
+		}
 	}
 }
 
@@ -49,7 +56,23 @@ func menu() {
 
 func monitoramento() {
 	fmt.Println("\nMonitorando...")
-	site := "https://www.alura.com.br"
+	sites := []string{"https://random-status-code.herokuapp.com/", "https://www.google.com", "https://www.alura.com.br"}
+
+	for i := 0; i < monitoramentos; i++ {
+		for i, site := range sites {
+			fmt.Println("Testando site: ", i, ":", site)
+			testaSite(site)
+		}
+		time.Sleep(delay * time.Second)
+		fmt.Println("")
+	}
+}
+
+func testaSite(site string) {
 	response, _ := http.Get(site)
-	fmt.Println(response)
+	if response.StatusCode == 200 {
+		fmt.Println("Site: ", site, "foi carregado com sucesso.")
+	} else {
+		fmt.Println("Site: ", site, "esta com problema. Status code: ", response.StatusCode)
+	}
 }
