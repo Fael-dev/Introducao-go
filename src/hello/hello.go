@@ -17,4 +17,15 @@ func main() {
 
 	fmt.Println("O endereço da minha variável comando é ", &comando)
 	fmt.Println("O comando escolhido foi ", comando)
+
+	if comando == 1 {
+		fmt.Println("\nMonitorando...")
+	} else if comando == 2 {
+		fmt.Println("\nExibindo logs...")
+	} else if comando == 0 {
+		fmt.Println("\nSaindo do programa.")
+	} else {
+		fmt.Println("\nNão conheço este comando.")
+	}
+
 }
