@@ -1,0 +1,15 @@
+29/05/2020 09:38:55 - https://random-status-code.herokuapp.com/ - online: false
+29/05/2020 09:38:56 - https://www.google.com - online: true
+29/05/2020 09:38:56 - https://www.alura.com.br - online: true
+29/05/2020 09:38:57 - https://www.facebook.com/ - online: true
+29/05/2020 09:38:58 - https://www.instagram.com/?hl=pt-br - online: true
+29/05/2020 09:39:03 - https://random-status-code.herokuapp.com/ - online: false
+29/05/2020 09:39:03 - https://www.google.com - online: true
+29/05/2020 09:39:04 - https://www.alura.com.br - online: true
+29/05/2020 09:39:04 - https://www.facebook.com/ - online: true
+29/05/2020 09:39:04 - https://www.instagram.com/?hl=pt-br - online: true
+29/05/2020 09:39:09 - https://random-status-code.herokuapp.com/ - online: true
+29/05/2020 09:39:10 - https://www.google.com - online: true
+29/05/2020 09:39:10 - https://www.alura.com.br - online: true
+29/05/2020 09:39:10 - https://www.facebook.com/ - online: true
+29/05/2020 09:39:10 - https://www.instagram.com/?hl=pt-br - online: true
